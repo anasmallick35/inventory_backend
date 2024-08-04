@@ -47,7 +47,7 @@ const registerUser = asyncHandler(async (req, res) => {
   res.cookie("token", token, {
     path: "/",
     httpOnly: true,
-    expires: new Date(Date.now() + 1000 * 86400), // 1 day
+    expires: new Date(Date.now() + 2000 * 86400), // 1 day
     sameSite: "None",
     secure: true,
   });
@@ -67,6 +67,9 @@ const registerUser = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("Invalid user data");
   }
+
+  console.log("Token Created:", token);
+console.log("Cookies Set:", req.headers.cookie);
 });
 
 // Login User
@@ -98,7 +101,7 @@ const loginUser = asyncHandler(async (req, res) => {
   res.cookie("token", token, {
     path: "/",
     httpOnly: true,
-    expires: new Date(Date.now() + 1000 * 86400), // 1 day
+    expires: new Date(Date.now() + 2000 * 86400), // 1 day
     sameSite: "None",
     secure: true,
   });
