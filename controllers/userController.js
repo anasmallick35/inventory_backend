@@ -8,7 +8,7 @@ const sendEmail = require("../utils/sendEmail");
 
 // Generate Token
 const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1d" });
+  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "3d" });
 };
 
 // Register User
@@ -47,7 +47,7 @@ const registerUser = asyncHandler(async (req, res) => {
   res.cookie("token", token, {
     path: "/",
     httpOnly: true,
-    expires: new Date(Date.now() + 2000 * 86400), // 1 day
+    expires: new Date(Date.now() + 3000 * 86400), // 1 day
     sameSite: "None",
     secure: true,
   });
@@ -101,7 +101,7 @@ const loginUser = asyncHandler(async (req, res) => {
   res.cookie("token", token, {
     path: "/",
     httpOnly: true,
-    expires: new Date(Date.now() + 2000 * 86400), // 1 day
+    expires: new Date(Date.now() + 3000 * 86400), // 1 day
     sameSite: "None",
     secure: true,
   });
