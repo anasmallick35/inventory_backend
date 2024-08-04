@@ -15,8 +15,7 @@ const app = express();
 // Middleware setup
 app.use(
     cors({
-      origin: ["http://localhost:3000", "https://inventory-frontend-gules.vercel.app/"],
-      credentials: true,
+      origin: "https://inventory-frontend-gules.vercel.app/"
     })
   );
   
